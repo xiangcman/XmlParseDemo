@@ -4,6 +4,7 @@ import android.util.Log;
 import android.util.Xml;
 
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -19,7 +20,13 @@ public class PullParse implements Parse {
         Paragraph paragraph = null;
         Text tag = null;
         //创建xmlPull解析器
-        XmlPullParser parser = Xml.newPullParser();
+        //org.xmlpull.v1解析方式
+        XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+        //区分namespace
+        factory.setNamespaceAware(true);
+        XmlPullParser parser = factory.newPullParser();
+        //传统的xml解析方式
+        XmlPullParser parser1 = Xml.newPullParser();
         ///初始化xmlPull解析器
         parser.setInput(is, "utf-8");
         //读取文件的类型

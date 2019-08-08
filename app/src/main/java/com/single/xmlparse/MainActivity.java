@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView = findViewById(R.id.show_list);
-        XmlFactory xmlFactory = new XmlFactory(XmlFactory.SAX);
+        XmlFactory xmlFactory = new XmlFactory(XmlFactory.PULL);
         Parse parse = xmlFactory.getParse();
         try {
             final List<Paragraph> paragraphList = parse.parse(getResources().getAssets().open("simple.xml"));

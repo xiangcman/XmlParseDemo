@@ -5,7 +5,6 @@ public class XmlFactory {
     public static final int PULL = 1;
     public static final int DOM = 2;
     public static final int SAX = 3;
-
     public XmlFactory(int type) {
         this.type = type;
     }
